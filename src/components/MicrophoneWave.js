@@ -1,23 +1,16 @@
 import WaveSurfer from "wavesurfer.js";
 import MicrophonePlugin from "wavesurfer.js/dist/plugin/wavesurfer.microphone";
 import { useEffect, useRef } from "react";
+import { formWaveSurferMicrophoneOptions } from "../helpers/waveOptions";
 
 const MicrophoneWave = () => {
   const waveformRef = useRef(null)
   const wavesurfer = useRef(null)
 
   useEffect(() => {
-    wavesurfer.current = WaveSurfer.create({
-      container: waveformRef.current,
-      waveColor: "#eee",
-      progressColor: "#3f535d",
-      barWidth: 3,
-      barHeight: 2,
-      barRadius: 3,
-      responsive: true,
-      height: 42,
-      plugins: [MicrophonePlugin.create()]
-    });
+    wavesurfer.current = WaveSurfer.create(
+      formWaveSurferMicrophoneOptions(waveformRef.current, MicrophonePlugin.create())
+    );
     wavesurfer.current.microphone.on('deviceReady', stream => {
       console.log('Device ready!', stream);
     });

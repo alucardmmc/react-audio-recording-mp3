@@ -12,3 +12,15 @@ export const formWaveSurferOptions = ref => ({
   // Use the PeakCache to improve rendering speed of large waveforms.
   partialRender: true
 });
+
+export const formWaveSurferMicrophoneOptions = (ref, microphone) => ({
+  container: ref,
+  waveColor: "#eee",
+  progressColor: "#3f535d",
+  barWidth: 3,
+  barHeight: 2,
+  barRadius: 3,
+  responsive: true,
+  height: 42,
+  plugins: [microphone]
+})
