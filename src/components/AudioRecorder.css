@@ -6,6 +6,7 @@
 }
 
 .audio-recorder__button {
+  font: 500 16px/24px 'Open Sans', sans-serif;
   color: #fff;
   background-color: royalblue;
   padding: 6px 8px;

@@ -1,6 +1,7 @@
 import { Component } from "react";
 import MicRecorder from 'mic-recorder-to-mp3'
 import './AudioRecorder.css'
+import MicrophoneWave from "./MicrophoneWave";
 
 const Mp3Recorder = new MicRecorder({ bitRate: 128 })
 
@@ -42,6 +43,11 @@ class AudioRecorder extends Component {
   }
 
   componentDidMount() {
+    navigator.getUserMedia = (navigator.getUserMedia ||
+      navigator.webkitGetUserMedia ||
+      navigator.mozGetUserMedia ||
+      navigator.msGetUserMedia)
+
     navigator.getUserMedia(
       { audio: true },
       () => {
@@ -57,21 +63,24 @@ class AudioRecorder extends Component {
 
   render() {
     return (
-      <div className="audio-recorder">
-        <button 
-          className="audio-recorder__button" 
-          onClick={this.start}
-          disabled={this.state.isRecording}
-        >
-          Record
-        </button>
-        <button 
-          className="audio-recorder__button audio-recorder__button--red" 
-          onClick={this.stop}
-          disabled={!this.state.isRecording}
-        >
-          Stop
-        </button>
+      <div className="container">
+        {this.state.isRecording ? <MicrophoneWave /> : null}
+        <div className="audio-recorder">
+          <button 
+            className="audio-recorder__button" 
+            onClick={this.start}
+            disabled={this.state.isRecording}
+          >
+            Record
+          </button>
+          <button 
+            className="audio-recorder__button audio-recorder__button--red" 
+            onClick={this.stop}
+            disabled={!this.state.isRecording}
+          >
+            Stop
+          </button>
+        </div>
       </div>
     )
   }

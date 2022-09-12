@@ -20,7 +20,12 @@ function App() {
       <section className='recordings'>
         <h2>Recordings</h2>
         {playlist.map((audio) => (
-          <AudioPlayer url={audio} key={audio} />
+          <div className='recordings__item' key={audio}>
+            <audio controls>
+              <source src={audio} type="audio/mpeg" />
+            </audio>
+            <AudioPlayer url={audio} />
+          </div>  
         ))}
       </section>
       <AudioRecorder onSave={addAudio} />
