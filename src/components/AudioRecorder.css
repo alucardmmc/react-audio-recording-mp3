@@ -1,0 +1,22 @@
+.audio-recorder {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.audio-recorder__button {
+  color: #fff;
+  background-color: royalblue;
+  padding: 6px 8px;
+  width: auto;
+  flex-grow: 1;
+}
+
+.audio-recorder__button:disabled {
+  opacity: 0.6;
+}
+
+.audio-recorder__button--red {
+  background-color: #e76e55;
+}
