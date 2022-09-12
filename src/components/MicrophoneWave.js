@@ -3,6 +3,8 @@ import MicrophonePlugin from "wavesurfer.js/dist/plugin/wavesurfer.microphone";
 import { useEffect, useRef } from "react";
 import { formWaveSurferMicrophoneOptions } from "../helpers/waveOptions";
 
+// ? This is only used as an indicator to the user that the microphone is on
+// ? Could be used to saved data
 const MicrophoneWave = () => {
   const waveformRef = useRef(null)
   const wavesurfer = useRef(null)
