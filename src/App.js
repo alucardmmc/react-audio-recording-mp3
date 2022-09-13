@@ -1,11 +1,8 @@
-import AudioPlayer from './components/AudioPlayer';
-import AudioRecorder from './components/AudioRecorder';
-import './App.css';
-import { useState } from 'react';
-
-// const audios = [
-//   'https://www.mfiles.co.uk/mp3-downloads/brahms-st-anthony-chorale-theme-two-pianos.mp3'
-// ]
+import AudioPlayer from './components/AudioPlayer'
+// import MRTMRecorder from './components/recorder/MRTMRecorder'
+import VMSGRecorder from './components/recorder/VMSGRecorder'
+import './App.css'
+import { useState } from 'react'
 
 function App() {
   const [playlist, setPlaylist] = useState([])
@@ -28,7 +25,7 @@ function App() {
           </div>  
         ))}
       </section>
-      <AudioRecorder onSave={addAudio} />
+      <VMSGRecorder onSave={addAudio} />
     </div>
   );
 }
